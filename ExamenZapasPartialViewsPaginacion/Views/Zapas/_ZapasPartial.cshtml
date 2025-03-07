@@ -1,0 +1,34 @@
+﻿@model ModelZapasPagination
+@{
+    int pos = (int) ViewData["POS"];
+    int siguiente = pos + 1;
+    int anterior = pos - 1;
+}
+
+<h4>Imagen @pos de @Model.Registros</h4>
+<div class="dflex flex-row">
+   <div >
+        @if (pos == 1)
+        {
+            <button class="btn btn-outline-info btnpaginacion" data-pos="@siguiente">Siguiente</button>
+            <button class="btn btn-outline-info btnpaginacion" data-pos="@Model.Registros">Último</button>
+            
+        }
+        else if (pos == Model.Registros)
+        {
+            <button class="btn btn-outline-info btnpaginacion" data-pos="1">Primero</button>
+            <button class="btn btn-outline-info btnpaginacion" data-pos="@anterior">Anterior</button>
+        }
+        else
+        {
+            <button class="btn btn-outline-info btnpaginacion" data-pos="1">Primero</button>
+            <button class="btn btn-outline-info btnpaginacion" data-pos="@anterior">Anterior</button>
+            <button class="btn btn-outline-info btnpaginacion" data-pos="@siguiente">Siguiente</button>
+            <button class="btn btn-outline-info btnpaginacion" data-pos="@Model.Registros">Último</button>
+        }
+   </div>
+   <div class="row">
+        <img src="@Model.ImagenZapa.ImagenUrl" style="width:400px; height:400px;" />
+   </div>
+
+</div>

@@ -1,0 +1,12 @@
+﻿@model List<Zapas>
+
+
+<h1>Selecciona las zapas que quieres ver:</h1>
+
+<ul class="list-group">
+@foreach(Zapas zapa in Model){
+    <li class="list-group-item list-group-item-">
+            <a asp-action="Details" asp-route-id="@zapa.Id">Ver @zapa.Nombre : @zapa.Precio €</a>
+    </li>
+}
+</ul>
